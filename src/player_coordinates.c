@@ -6,33 +6,31 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 13:50:47 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/16 15:35:15 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/18 17:26:05 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_game	player_coordinates(char **str)
+void	player_coordinates(t_game *player)
 {
 	int		i;
 	int		j;
-	t_game	player;
 
 	i = 0;
-	while (str && str[i])
+	while (player->map && player->map[i])
 	{
 		j = 0;
-		while (str[i][j])
+		while (player->map[i][j])
 		{
-			if (str[i][j] == 'P')
+			if (player->map[i][j] == 'P')
 			{
-				player.player_coordinates.x = j;
-				player.player_coordinates.y = i;
+				player->player_coordinates.x = j;
+				player->player_coordinates.y = i;
 				break ;
 			}
 			j++;
 		}
 		i++;
 	}
-	return (player);
 }

@@ -13,17 +13,19 @@ HEADER	= $(wildcard ./includes/*.h)
 INCLUDE	= -Iincludes
 CFLAGS	= -Wall -Wextra -Werror $(INCLUDE)
 MK		= mkdir -p
+IMLX	= -Imlx
+MLX		= -lmlx -framework OpenGL -framework AppKit
 
 all: $(OBJ_DIR) $(NAME)
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(HEADER) Makefile
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(IMLX) -c $< -o $@
 
 $(OBJ_DIR):
 	$(MK) $(OBJ_DIR)
 
 $(NAME): $(OBJ) $(HEADER)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) $(MLX) -o $(NAME) $(OBJ)
 
 clean:
 	@rm -f $(OBJ)
