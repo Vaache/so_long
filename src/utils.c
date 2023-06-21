@@ -6,15 +6,15 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:22:11 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/16 14:27:49 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:18:40 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int    ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (s1[i] && s2[i] && s1[i] == s2[i])
@@ -62,12 +62,16 @@ char	*ft_strtrim(char *s1, char *set)
 	return (str);
 }
 
-void	ft_free(char **s)
+void	ft_free(char **s, int i)
 {
-	int	i;
-
-	i = 0;
-	while (s[i])
-		free (s[i++]);
+	while (i >= 0)
+		free (s[i--]);
 	free(s);
+}
+
+void	help(t_game *game, int x, int y)
+{
+	game->map[y][x] = '0';
+	game->ccoin--;
+	game->steps++;
 }

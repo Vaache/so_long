@@ -6,7 +6,7 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:25:33 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/16 14:16:51 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/21 12:31:24 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,9 @@ void	check_map(char **str)
 		if (i == 0 || str[i + 1] == NULL)
 			while (str[i][++j])
 				if (str[i][j] != '1')
-					panic("Error\n");
+					panic("Error Map Corectly\n");
 		if (str[i][0] != '1' || str[i][ft_strlen(str[i]) - 1] != '1')
-			panic("Error\n");
+			panic("Error Map Corectly\n");
 		i++;
 	}
 }
@@ -56,7 +56,7 @@ void	check_lenght(char **str)
 	while (str && str[i] && str[i + 1])
 	{
 		if (ft_strlen(str[i]) != ft_strlen(str[i + 1]))
-			panic("Error\n");
+			panic("Error Lenght Map\n");
 		i++;
 	}
 }
@@ -73,8 +73,9 @@ void	check_characters(char **str)
 		while (str[i][j])
 		{
 			if (str[i][j] != '1' && str[i][j] != '0' \
-				&& str[i][j] != 'C' && str[i][j] != 'E' && str[i][j] != 'P')
-				panic("Error\n");
+				&& str[i][j] != 'C' && str[i][j] != 'E' && str[i][j] != 'P' \
+				&& str[i][j] != 'W')
+				panic("Error Characters\n");
 			j++;
 		}
 		i++;
@@ -83,18 +84,14 @@ void	check_characters(char **str)
 	}
 }
 
-void	check_valid(char **str)
+void	check_valid(char **str, int player, int exit, int coin)
 {
-	int	i;
-	int	j;
-	int	player;
-	int	exit;
-	int	coin;
+	int		i;
+	int		j;
+	int		enemy;
 
 	i = 0;
-	player = 0;
-	exit = 0;
-	coin = 0;
+	enemy = 0;
 	while (str && str[++i])
 	{
 		j = 0;
@@ -106,8 +103,10 @@ void	check_valid(char **str)
 				player++;
 			else if (str[i][j] == 'E')
 				exit++;
+			else if (str[i][j] == 'W')
+				enemy++;
 		}
 	}
-	if (coin == 0 || player != 1 || exit != 1)
-		panic("Error\n");
+	if (coin == 0 || player != 1 || exit != 1 || enemy < 1)
+		panic("Error Count Characters\n");
 }

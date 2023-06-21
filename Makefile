@@ -11,7 +11,7 @@ OBJ = $(patsubst $(SRC_DIR)/%.c, $(OBJ_DIR)/%.o, $(SRC))
 CC		= cc
 HEADER	= $(wildcard ./includes/*.h)
 INCLUDE	= -Iincludes
-CFLAGS	= -Wall -Wextra -Werror $(INCLUDE)
+CFLAGS	= -Wall -Wextra -Werror $(INCLUDE) #-fsanitize=address -g3
 MK		= mkdir -p
 IMLX	= -Imlx
 MLX		= -lmlx -framework OpenGL -framework AppKit
