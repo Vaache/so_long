@@ -6,7 +6,7 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/18 16:08:58 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/21 13:47:05 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/28 20:19:27 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	map_mlx(t_game *game)
 	game->steps = 0;
 	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx, game->map_size.x * 64, \
-		game->map_size.y * 64, "SO_LONG");
+		game->map_size.y * 64, "LAV TXU XAXA APE");
 	xmp_creat(game);
 	mlx_hook(game->mlx_win, 2, 0, &mlx_keypress, game);
 	mlx_loop_hook(game->mlx, &frame, game);

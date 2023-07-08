@@ -6,7 +6,7 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:25:33 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/21 12:31:24 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:40:51 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_ber(char *str)
 		i--;
 	}
 	if (ft_strcmp(&str[i], ".ber") != 0)
-		panic("Error\n");
+		panic("Error: File is not .ber\n");
 }
 
 void	check_map(char **str)
@@ -41,9 +41,9 @@ void	check_map(char **str)
 		if (i == 0 || str[i + 1] == NULL)
 			while (str[i][++j])
 				if (str[i][j] != '1')
-					panic("Error Map Corectly\n");
+					panic("Error: Map Corectly\n");
 		if (str[i][0] != '1' || str[i][ft_strlen(str[i]) - 1] != '1')
-			panic("Error Map Corectly\n");
+			panic("Error: Map Corectly\n");
 		i++;
 	}
 }
@@ -56,7 +56,7 @@ void	check_lenght(char **str)
 	while (str && str[i] && str[i + 1])
 	{
 		if (ft_strlen(str[i]) != ft_strlen(str[i + 1]))
-			panic("Error Lenght Map\n");
+			panic("Error: Lenght Map\n");
 		i++;
 	}
 }
@@ -75,7 +75,7 @@ void	check_characters(char **str)
 			if (str[i][j] != '1' && str[i][j] != '0' \
 				&& str[i][j] != 'C' && str[i][j] != 'E' && str[i][j] != 'P' \
 				&& str[i][j] != 'W')
-				panic("Error Characters\n");
+				panic("Error: Characters\n");
 			j++;
 		}
 		i++;
@@ -107,6 +107,6 @@ void	check_valid(char **str, int player, int exit, int coin)
 				enemy++;
 		}
 	}
-	if (coin == 0 || player != 1 || exit != 1 || enemy < 1)
-		panic("Error Count Characters\n");
+	if (coin == 0 || player != 1 || exit != 1)
+		panic("Error: Count Characters\n");
 }

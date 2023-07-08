@@ -6,7 +6,7 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:23:17 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/21 13:47:39 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:39:21 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	main(int ac, char **av)
 		free(line);
 	}
 	if (res == NULL)
-		panic("Emap Map\n");
+		panic("Error: Map Does Not Exist\n");
 	main_2(res);
 }
 
@@ -47,11 +47,11 @@ void	main_2(char *res)
 
 	trim = ft_strtrim(res, "\n");
 	if (trim[0] == '\0')
-		panic("Empty Map\n");
+		panic("Error: Empty Map\n");
 	i = -1;
 	while (trim && trim[++i])
 		if (trim[i] == '\n' && trim[i + 1] == '\n')
-			panic("Error New Line\n");
+			panic("Error: New Line\n");
 	map.map = ft_split(trim, '\n');
 	str = ft_split(trim, '\n');
 	check_map(map.map);

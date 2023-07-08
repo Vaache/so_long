@@ -6,7 +6,7 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:22:05 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/21 12:14:50 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:43:15 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	coin_count(t_game *game);
 
 void	flood_fill(char **str, int x, int y);
 void	valid_flood_fill_map(char **map);
+void	valid_flood_fill_map2(char **map);
 
 void	map_mlx(t_game *map);
 void	xmp_creat(t_game *game);

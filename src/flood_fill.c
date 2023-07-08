@@ -6,11 +6,11 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:29:06 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/21 11:37:51 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:46:28 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/so_long.h"
+#include "so_long.h"
 
 void	valid_flood_fill_map(char **map)
 {
@@ -24,7 +24,32 @@ void	valid_flood_fill_map(char **map)
 		while (map[i][j])
 		{
 			if (map[i][j] == 'P' || map[i][j] == 'C')
-				panic("Error Flood Fill Map\n");
+				panic("Error: The Player Cannot Win\n");
+			j++;
+		}
+		i++;
+	}
+	valid_flood_fill_map2(map);
+}
+
+void	valid_flood_fill_map2(char **str)
+{
+	int	i;
+	int	j;
+
+	i = 1;
+	j = 1;
+	while (str[i])
+	{
+		j = 1;
+		while (str[i][j])
+		{
+			if (str[i][j] == 'E')
+			{
+				if (str[i + 1][j] != '-' && str[i - 1][j] != '-' &&
+					str[i][j - 1] != '-' && str[i][j + 1] != '-')
+					panic("Error: The Player Cannot Win\n");
+			}
 			j++;
 		}
 		i++;

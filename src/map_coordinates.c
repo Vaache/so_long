@@ -6,7 +6,7 @@
 /*   By: vhovhann <vhovhann@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 15:09:18 by vhovhann          #+#    #+#             */
-/*   Updated: 2023/06/20 21:22:17 by vhovhann         ###   ########.fr       */
+/*   Updated: 2023/06/21 14:39:25 by vhovhann         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,8 @@ void	map_coordinates(t_game *map)
 			j++;
 		map->map_size.x = j;
 	}
+	if (map->map_size.y > 17)
+		panic("Error: Large Map\n");
+	if (map->map_size.x > 32)
+		panic("Error: Large Map\n");
 }
