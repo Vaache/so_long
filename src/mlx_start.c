@@ -42,7 +42,7 @@ void	map_mlx(t_game *game)
 	game->steps = 0;
 	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx, game->map_size.x * 64, \
-		game->map_size.y * 64, "LAV TXU XAXA APE");
+		game->map_size.y * 64, "SO_LONG");
 	xmp_creat(game);
 	mlx_hook(game->mlx_win, 2, 0, &mlx_keypress, game);
 	mlx_loop_hook(game->mlx, &frame, game);
